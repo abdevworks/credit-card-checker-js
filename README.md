@@ -1,2 +1,2 @@
 # credit-card-checker-js
-JavaScript Project Exercise
+JavaScript Project Exercise - Codecademy
