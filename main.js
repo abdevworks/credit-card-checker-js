@@ -23,6 +23,7 @@ const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3]
 const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3, invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5]
 
 
+
 // Add your functions below:
 const validateCred = (arr) =>{
     let numberSum = 0; 
@@ -33,6 +34,7 @@ const validateCred = (arr) =>{
     for(let i=arr.length-1;i>=0;i--){
         if(i%2 === remain && i !== arr.length-1){//double every other diging starting from the last index (check digit is not doubled)
             checkDigit = arr[i]*2;// double the digit
+            //console.log(arr[i]);
             if(checkDigit>9){//if greater than 9, substract 9 from it
                 checkDigit -= 9;
             }
@@ -41,11 +43,20 @@ const validateCred = (arr) =>{
             numberSum +=arr[i];
         }   
     }
-    result = numberSum%10;
-    console.log(result);
+    result = numberSum%10;//if the result is 0 then the card is valid
+    
+    if(result === 0){
+        console.log(`Credit card number: ${arr.join('')} is valid`);
+    }else{
+        console.log(`Credit card number: ${arr.join('')} is invalid`);
+    }
 }
 
-validateCred(valid1);
+
+for(let i = 0; i < batch.length;i++){
+    validateCred(batch[i]);
+}
+
 
 
 
